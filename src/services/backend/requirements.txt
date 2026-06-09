@@ -1,0 +1,21 @@
+# CropShield AI — Backend Dependencies
+# Python 3.11
+
+# ── Web framework ─────────────────────────────────────────────────────────────
+fastapi==0.115.5
+uvicorn[standard]==0.32.1        # ASGI server (includes websockets + httptools)
+python-multipart==0.0.17         # Required for FastAPI file uploads
+
+# ── ML / Image processing ─────────────────────────────────────────────────────
+#tensorflow==2.17.0               # Includes Keras
+numpy==1.26.4                    # Pinned for TF 2.17 compatibility
+Pillow==11.0.0                   # Image loading and preprocessing
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+pydantic==2.10.3                 # Data validation (bundled with FastAPI)
+python-dotenv==1.0.1             # Optional: load .env for config
+
+# ── Development / testing (optional) ─────────────────────────────────────────
+# httpx==0.28.0                  # Async HTTP client used in pytest tests
+# pytest==8.3.4
+# pytest-asyncio==0.24.0

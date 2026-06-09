@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-leaf-950 text-white font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl;
+  }
+
+  .glass-card-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  /* Primary CTA button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-4 rounded-xl font-semibold text-white
+           bg-gradient-to-r from-leaf-500 to-leaf-600
+           hover:from-leaf-400 hover:to-leaf-500
+           shadow-lg shadow-leaf-900/50
+           transition-all duration-200 hover:scale-105 active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-leaf-400 focus:ring-offset-2 focus:ring-offset-leaf-950;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-7 py-4 rounded-xl font-semibold
+           border-2 border-leaf-500 text-leaf-400
+           hover:bg-leaf-500/10
+           transition-all duration-200 hover:scale-105 active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-leaf-400;
+  }
+
+  /* Section label eyebrow */
+  .eyebrow {
+    @apply text-leaf-400 text-xs font-bold uppercase tracking-widest;
+  }
+
+  /* Severity badge colors */
+  .severity-low    { @apply bg-emerald-500/20 text-emerald-300 border border-emerald-500/30; }
+  .severity-medium { @apply bg-yellow-500/20 text-yellow-300 border border-yellow-500/30; }
+  .severity-high   { @apply bg-red-500/20 text-red-300 border border-red-500/30; }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+
+  /* Animated blob background elements */
+  .blob {
+    @apply absolute rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob;
+  }
+
+  /* Scan line animation for loading */
+  .scan-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4ade80, transparent);
+    animation: scan 1.8s linear infinite;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { @apply bg-leaf-950; }
+::-webkit-scrollbar-thumb { @apply bg-leaf-700 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-leaf-600; }
